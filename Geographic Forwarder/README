@@ -1,0 +1,31 @@
+ Short description:
+ ==================
+
+ GPSR (Greedy Perimeter Stateless Routing) is a geographic routing protocol proposed for wireless ad hoc 
+ and sensor networks [1] that can be used to route data packets between any pair of nodes (i.e., it supports node-to- 
+ node communication). GPSR assumes that every sensor node is aware of its own location and the locations of 
+ its neighbors. In GPSR, nodes construct a planar subgraph based on the network topology in a distributive manner. This 
+ distributive planarization algorithm is GG (Gabriel Graph) in this current implementation. 
+ Forwarding a packet, each node first tries to greedily select the next-hop towards the base station 
+ who is closest to the destination among all neighbors. If all neighbors are farther away from the destination 
+ then the forwarding node (i.e., there is a local minimum), then the forwarding node falls back to perimeter mode 
+ by using the planar subgraph to circumvent the local minimum. 
+
+ Dependency:
+ ===========
+ 
+ This module depends on module Identity.
+ A simple neigbor discovery protocol is implemented in module NeighborManagement (in order to 
+ retrieve the coordinates of neighboring nodes).
+ GPSR can be used through interface GPSR.nc, functions are documented there.
+
+ BUGS:
+ =====
+ 
+ In case of bugs, please contact the author.
+
+ References:
+ ===========
+ [1] Karp, B., and Kung. H. T. GPSR: Greedy Perimeter Stateless Routing for Wireless Networks, 
+     In Proc. of the 6th Annual International Conference on Mobile Computing and Networking (MobiCom 2000), 243-254. 
+ 
